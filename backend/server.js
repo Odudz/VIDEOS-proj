@@ -27,4 +27,11 @@ app.post('/auth/register', async(req,res) =>{
 
   await database.create({ name,email,password});
   res.status(201).json({ msg: 'Usuário criado!'});
+
+   app.post('/auth/login', async(req, res) => {
+      const { email, password } = req.body;
+      if(!email || !password){
+      return res.status(400).json({ msg: 'Preencha email e senha!'});
+    }
 })
+
